@@ -13,7 +13,7 @@
         <div id="contact">
           {{#has 'contact.email'}}<div class="email"><a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/has}}
           {{#has 'contact.phone'}}<div class="phone">{{ RAW.contact.phone }}</div>{{/has}}
-          {{#has 'contact.website'}}<div class="website"><a href="{{{ RAW.contact.website }}}">{{trimURL RAW.contact.website }}</a></div>{{/has}}
+          {{#has 'contact.website'}}full resume: <div class="website"><a href="{{{ RAW.contact.website }}}">{{trimURL RAW.contact.website }}</a></div>{{/has}}
         </div>
       </header>
 
@@ -23,6 +23,7 @@
 
 -->}}
 
+{{#*inline "icon-certifications"}}<span class="fa fs-lg fa-certificate"></span>{{/inline}}
 {{#*inline "icon-skills"}}<span class="fa fa-lg fa-code"></span>{{/inline}}
 {{#*inline "icon-employment"}}<span class="fa fa-building"></span>{{/inline}}
 {{#*inline "icon-projects"}}<span class="fa fa-star"></span>{{/inline}}
@@ -47,11 +48,19 @@
     {{/if}}
     </h3>
     <span class="tenure">{{dateRange .}}</span>
-  <p>{{{ summary }}}</p>
-  {{> highlights }}
   {{#if keywords}}
-  <span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+  <span class="keywords">{{#each keywords}}{{{ . }}}{{#unless @last}}, {{/unless}}{{/each}}</span>
   {{/if}}
+  {{#if technologies}}
+  <span class="keywords">{{#each technologies}}{{{ . }}}{{#unless @last}}, {{/unless}}{{/each}}</span>
+  {{/if}}
+  {{#if description}}
+    <p class="description">{{{ description }}}</p>
+  {{else}}
+    <p>{{{summary}}}</p>
+  {{/if}}
+  <p>{{> work-projects }}</p>
+  {{> highlights }}
 </div>
 {{/inline}}
 
@@ -81,10 +90,12 @@
 
 {{#has "info.brief"}}
 <section id="summary">
+  <img class="qr" src="../images/qr.png" />
   {{{ r.info.brief }}}
 </section>
 {{/has}}
 
+{{> section/certifications _icon="icon-certifications"}}
 {{> section/skills _icon="icon-skills"}}
 {{> section/employment _icon="icon-employment"}}
 {{> section/projects _icon="icon-projects"}}

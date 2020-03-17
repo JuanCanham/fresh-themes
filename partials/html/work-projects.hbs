@@ -1,0 +1,8 @@
+{{#if projects}}
+<p class="projects">
+<b>Projects:</b>
+  {{#each projects}}
+  {{{ name }}}{{#if customer}}(<i>{{customer}}</i>){{/if}}{{#unless @last}}, {{/unless}}
+  {{/each}}
+</p>
+{{/if}}

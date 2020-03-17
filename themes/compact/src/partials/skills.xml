@@ -38,7 +38,7 @@
         </w:tcPr>
         <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
           <w:r>
-            <w:t>{{#each skills }}{{ this }}{{#unless @last}}, {{/unless}}{{/each}}</w:t>
+            <w:t>{{#each skills }}{{#name}}{{ name }}{{/name}}{{^name}}{{ . }}{{/name}}{{#unless @last}}, {{/unless}}{{/each}}</w:t>
           </w:r>
         </w:p>
       </w:tc>

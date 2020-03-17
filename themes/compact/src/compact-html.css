@@ -98,3 +98,13 @@ span.keywords {
   color: gray;
   text-align: right;
 }
+
+img {
+  height: 55px;
+  display: inline-block;
+}
+
+.certifications {
+  align-content: center;
+  text-align: center;
+}

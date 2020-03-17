@@ -33,7 +33,7 @@ hr {
 
 main {
   padding: 15px;
-  max-width: 700px;
+  max-width: 82%;
   margin: 0 auto;
 }
 
@@ -51,6 +51,14 @@ h3 {
 
 p, li {
   text-align: justify;
+}
+
+.description {
+  margin-bottom: .5em;
+}
+
+.projects {
+  text-align: left;
 }
 
 .tenure {
@@ -90,4 +98,20 @@ main > header > h1 {
 h2 > span.fa {
   text-align: left;
   margin-right: 3px;
+}
+
+img {
+  height: 60px;
+  display: inline-block;
+}
+
+.logos {
+  align-content: center;
+  text-align: center;
+}
+
+.qr {
+  height: 55px;
+  float: right;
+  margin: 0px 0px 5px 0px;
 }

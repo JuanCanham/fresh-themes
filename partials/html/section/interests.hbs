@@ -4,15 +4,12 @@
   {{#> header-interests }}
     {{> header-icon _title="INTERESTS" _section="interests" _hdricon=(lookup . '_icon') }}
   {{/header-interests}}
+  <center>
   {{#each r.interests}}
     {{#> body-interests }}
-    <div>
-    <h3><em>{{{ name }}}</em></h3>
-    <span class="tenure">{{date date 'YYYY' }}</span>
-    {{{ summary }}}
-    {{> highlights }}
-    </div>
+    | <em>{{{ name }}}</em> |
     {{/body-interests}}
   {{/each}}
+  </center>
 </section>
 {{/section}}

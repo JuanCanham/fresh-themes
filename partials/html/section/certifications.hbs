@@ -1,0 +1,35 @@
+{{#section "certifications"}}
+<hr>
+<section id="certifications">
+  <div class="certifications">
+  {{#> header-certifications }}
+    {{> header-icon _title="CERTIFICATIONS" _section="certifications" _hdricon=(lookup . '_icon') }}
+  {{/header-certifications}}
+  <center>
+    {{#each r.certifications}}
+    <span>
+      {{#each certificates}}
+        {{#if logo}}
+          <img class="media-object logo"
+            src="../images/{{logo}}"
+            alt="{{name}}{{#level}} - {{.}}{{/level}}"
+            title="{{name}}{{#level}} - {{.}}{{/level}}" />
+        {{/if}}
+      {{/each}}
+    </span>
+    {{/each}}
+    </center>
+    </div>
+    <div class="certifications">
+    <center>
+    {{#each r.certifications}}
+      {{#each certificates}}
+        {{#unless logo}}
+          | {{name}}{{#level}} - ({{.}}){{/level}} |
+        {{/unless}}
+      {{/each}}
+    {{/each}}
+  </center>
+  </div>
+</section>
+{{/section}}

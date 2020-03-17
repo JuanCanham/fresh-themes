@@ -15,7 +15,12 @@
       {{#each r.skills.sets}}
       <tr>
         <td style="width: 25%;">{{ name }}</td>
-        <td class="keywords">{{#each skills}}{{ . }} {{/each}}</td>
+        <td class="keywords">{{#each skills }}
+          {{#name}}
+            <span title="{{level}}{{#summary}} - {{summary}}{{/summary}}">{{ name }}</span>
+          {{/name}}{{^name}}
+            {{ . }}{{/name}}{{#unless @last}}, {{/unless}}{{/each}}
+        </td>
       </tr>
       {{/each}}
     </tbody>
